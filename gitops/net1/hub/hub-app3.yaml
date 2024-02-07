@@ -1,1 +1,23 @@
-{"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"name":"hub-app3","namespace":"nethopper","finalizers":["resources-finalizer.argocd.argoproj.io"],"annotations":{"argocd.argoproj.io/sync-wave":"-1"}},"spec":{"syncPolicy":{"automated":{"prune":true,"selfHeal":true},"syncOptions":["Validate=false","CreateNamespace=true"]},"project":"default","source":{"repoURL":"https://github.com/argoproj/argocd-example-apps.git","targetRevision":"HEAD","path":"guestbook"},"destination":"server: https://nh-kapi-hub:8080"}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hub-app3
+  namespace: nethopper
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination: 'server: https://nh-kapi-hub:8080'
