@@ -20,4 +20,6 @@ spec:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
-  destination: 'server: https://nh-kapi-hub:8080'
+  destination:
+    server: 'server: https://nh-kapi-hub:8080'
+    namespace: gb3
